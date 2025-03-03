@@ -12,6 +12,7 @@ Level::Level(sf::RenderWindow* hwnd, Input* in)
 	testSprite.setSize(sf::Vector2f(100, 100));
 	testSprite.setPosition(100, 100);
 
+	tomcotP1.setInput(in);
 }
 
 Level::~Level()
@@ -28,6 +29,8 @@ void Level::handleInput(float dt)
 		window->close();
 	}
 
+	tomcotP1.handleInput(dt);
+
 }
 
 // Update game objects
@@ -41,7 +44,10 @@ void Level::render()
 {
 	beginDraw();
 
+	window->draw(en1);
+	window->draw(en2);
 	window->draw(testSprite);
+	window->draw(tomcotP1);
 
 	endDraw();
 }
