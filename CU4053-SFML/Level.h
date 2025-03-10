@@ -8,6 +8,7 @@
 #include <iostream>
 #include "Player.h"
 #include "Enemy.h"
+#include "Cursor.h"
 
 class Level : BaseLevel {
 public:
@@ -28,5 +29,9 @@ private:
 
 	Player tomcotP1;
 
+	sf::Texture enTex1, enTex2;
+
 	Enemy en1, en2;
+
+	Cursor mousePoint;
 };

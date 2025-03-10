@@ -2,18 +2,7 @@
 
 Enemy::Enemy()
 {
-	//something's clearly broken here
-	enTex1.loadFromFile("gfx/Goomba.png");
-
-	setTexture(&enTex1);
-	setSize(sf::Vector2f(100,100));
-	setPosition(200, 250);
-
-	enTex2.loadFromFile("gfx/Beach_Ball.png");
-
-	setTexture(&enTex2);
-	setSize(sf::Vector2f(100,100));
-	setPosition(200, 400);
+	velocity = sf::Vector2f(400, 0);
 }
 
 Enemy::~Enemy()
@@ -22,4 +11,12 @@ Enemy::~Enemy()
 
 void Enemy::update(float dt)
 {
+	move(velocity * dt);
+
+	if (getPosition().x > window->getSize().x - getSize().x) {
+		velocity = sf::Vector2f(-400, 0);
+	}
+	if (getPosition().x < 0) {
+		velocity = sf::Vector2f(400, 0);
+	}
 }
